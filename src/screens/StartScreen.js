@@ -9,8 +9,8 @@ export default function StartScreen({ navigation }) {
   return (
     <AuthBackground>
       <Logo />
-      <Header>React Native - Expo - Login</Header>
-      <Paragraph>A simple React Native Expo Login template app.</Paragraph>
+      <Header>ANEMOS</Header>
+      <Paragraph>Profit with Purpose, Thrive Sustainably</Paragraph>
       <Button
         mode="contained"
         onPress={() => navigation.navigate("LoginScreen")}

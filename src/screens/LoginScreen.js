@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TouchableOpacity, StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
 import AuthBackground from "../components/AuthBackground";
@@ -8,21 +8,24 @@ import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 import BackButton from "../components/BackButton";
 import { theme } from "../core/theme";
-import { emailValidator } from "../helpers/emailValidator";
+import { nameValidator } from "../helpers/nameValidator";
 import { passwordValidator } from "../helpers/passwordValidator";
+import { AuthContext } from "../contexts/AuthContext";
 
 export default function LoginScreen({ navigation }) {
-  const [email, setEmail] = useState({ value: "", error: "" });
+  const { user, setUser } = useContext(AuthContext);
+  const [nameInput, setNameInput] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
 
   const onLoginPressed = () => {
-    const emailError = emailValidator(email.value);
+    const nameError = nameValidator(nameInput.value);
     const passwordError = passwordValidator(password.value);
-    if (emailError || passwordError) {
-      setEmail({ ...email, error: emailError });
+    if (nameError || passwordError) {
+      setNameInput({ ...nameInput, error: nameError });
       setPassword({ ...password, error: passwordError });
       return;
     }
+    else{setUser(nameInput.value);}
     navigation.reset({
       index: 0,
       routes: [{ name: "Dashboard" }],
@@ -33,18 +36,14 @@ export default function LoginScreen({ navigation }) {
     <AuthBackground style={{ padding: 24 }}>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Hello.</Header>
+      <Header>Login to continue</Header>
       <TextInput
-        label="Email"
+        label="Name"
         returnKeyType="next"
-        value={email.value}
-        onChangeText={(text) => setEmail({ value: text, error: "" })}
-        error={!!email.error}
-        errorText={email.error}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
+        value={nameInput.value}
+        onChangeText={(text) => setNameInput({ value: text, error: "" })}
+        error={!!nameInput.error}
+        errorText={nameInput.error}
       />
       <TextInput
         label="Password"
@@ -66,11 +65,11 @@ export default function LoginScreen({ navigation }) {
         Log in
       </Button>
       <View style={styles.row}>
-        <Text>You do not have an account yet ?</Text>
+        <Text>Don't have an account yet ?</Text>
       </View>
       <View style={styles.row}>
         <TouchableOpacity onPress={() => navigation.replace("RegisterScreen")}>
-          <Text style={styles.link}>Create !</Text>
+          <Text style={styles.link}>Create an account</Text>
         </TouchableOpacity>
       </View>
     </AuthBackground>

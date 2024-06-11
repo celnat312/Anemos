@@ -33,10 +33,12 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: theme.colors.secondary,
     paddingTop: 8,
+    fontFamily: 'sans-serif',
   },
   error: {
     fontSize: 13,
     color: theme.colors.error,
     paddingTop: 8,
+    fontFamily: 'sans-serif',
   },
 });

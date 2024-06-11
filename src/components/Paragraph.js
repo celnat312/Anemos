@@ -12,5 +12,8 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     textAlign: "center",
     marginBottom: 12,
+    fontFamily: 'sans-serif',
+    //color: theme.colors.primary,
+    fontStyle: 'italic',
   },
 });

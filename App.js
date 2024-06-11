@@ -12,6 +12,8 @@ import {
   Chatbot,
   AirconForm,
 } from "./src/screens";
+import { AuthContextProvider } 
+from "./src/contexts/AuthContext";
 
 import { FormDataProvider } from './src/helpers/FormDataContext';
 
@@ -20,6 +22,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <Provider theme={theme}>
+      <AuthContextProvider>
       <FormDataProvider>
       <NavigationContainer>
         <Stack.Navigator
@@ -41,6 +44,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
       </FormDataProvider>
+      </AuthContextProvider>
     </Provider>
   );
 }

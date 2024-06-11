@@ -37,7 +37,7 @@ export default function RegisterScreen({ navigation }) {
     <AuthBackground>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Welcome.</Header>
+      <Header>Create an account to get started !</Header>
       <TextInput
         label="Name"
         returnKeyType="next"
@@ -75,7 +75,7 @@ export default function RegisterScreen({ navigation }) {
         Next
       </Button>
       <View style={styles.row}>
-        <Text>I already have an account !</Text>
+        <Text>Already have an account ?</Text>
       </View>
       <View style={styles.row}>
         <TouchableOpacity onPress={() => navigation.replace("LoginScreen")}>
