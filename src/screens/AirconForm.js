@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import { View, ScrollView, StyleSheet } from "react-native";
 import { Text } from "react-native-paper";
+import { CommonActions } from "@react-navigation/native";
 
 import Background from "../components/Background";
-import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 import BackButton from "../components/BackButton";
 import { theme } from "../core/theme";
 
-export default function Airconforms ({ navigation }) {
-  const [officeSpace, setOfficeSpace] = useState('');
-  const [numberOfEmployees, setNumberOfEmployees] = useState('');
-  const [workingHours, setWorkingHours] = useState('');
-  const [daysInOffice, setDaysInOffice] = useState('');
-  const [greenPractices, setGreenPractices] = useState('');
-  const [airconMaintenance, setAirconMaintenance] = useState('');
+export default function Airconforms({ navigation }) {
+  const [officeSpace, setOfficeSpace] = useState("");
+  const [numberOfEmployees, setNumberOfEmployees] = useState("");
+  const [workingHours, setWorkingHours] = useState("");
+  const [daysInOffice, setDaysInOffice] = useState("");
+  const [greenPractices, setGreenPractices] = useState("");
+  const [airconMaintenance, setAirconMaintenance] = useState("");
   const [electricityData, setElectricityData] = useState([
-    { kwh: '', cost: '' },
-    { kwh: '', cost: '' },
-    { kwh: '', cost: '' },
-    { kwh: '', cost: '' },
-    { kwh: '', cost: '' },
-    { kwh: '', cost: '' }
+    { kwh: "", cost: "" },
+    { kwh: "", cost: "" },
+    { kwh: "", cost: "" },
+    { kwh: "", cost: "" },
+    { kwh: "", cost: "" },
+    { kwh: "", cost: "" },
   ]);
 
   const handleElectricityChange = (index, field, value) => {
@@ -40,21 +40,30 @@ export default function Airconforms ({ navigation }) {
       daysInOffice,
       greenPractices,
       airconMaintenance,
-      electricityData
+      electricityData,
     };
-    console.log('Form Data:', formData);
+    console.log("Form Data:", formData);
     navigation.reset({
       index: 0,
-      routes: [{ name: "Chatbot"}],
+      routes: [{ name: "Chatbot" }],
     });
   };
 
   return (
     <Background>
-      <BackButton goBack={navigation.goBack} />
-      <Logo />
-      <ScrollView style={styles.container}>
-      <Header>Please input this form so that we are able to catered suggestions based on your own office</Header>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={{ width: "100%" }}
+      >
+        <BackButton
+          goBack={() => {
+            navigation.dispatch(CommonActions.goBack());
+          }}
+        />
+        <Header>
+          Please input this form so that we are able to catered suggestions
+          based on your own office
+        </Header>
         <Text style={styles.label}>Office Space (in square meters)</Text>
         <TextInput
           style={styles.input}
@@ -80,7 +89,6 @@ export default function Airconforms ({ navigation }) {
 
         <Text style={styles.label}>Days Employees in Office</Text>
         <TextInput
-          style={styles.input}
           value={daysInOffice}
           onChangeText={setDaysInOffice}
           keyboardType="numeric"
@@ -104,36 +112,54 @@ export default function Airconforms ({ navigation }) {
         <Text style={styles.label}>Electricity Bill for the Past 6 Months</Text>
         {electricityData.map((monthData, index) => (
           <View key={index} style={styles.electricityRow}>
-            <TextInput
-              style={styles.electricityInput}
-              value={monthData.kwh}
-              onChangeText={(value) => handleElectricityChange(index, 'kwh', value)}
-              placeholder="kWh"
-              keyboardType="numeric"
-            />
-            <TextInput
-              style={styles.electricityInput}
-              value={monthData.cost}
-              onChangeText={(value) => handleElectricityChange(index, 'cost', value)}
-              placeholder="Cost ($)"
-              keyboardType="numeric"
-            />
+            <View style={{ flex: 1 }}>
+              <TextInput
+                style={[
+                  styles.electricityInput,
+                  { justifyContent: "flex-start" },
+                ]}
+                value={monthData.kwh}
+                onChangeText={(value) =>
+                  handleElectricityChange(index, "kwh", value)
+                }
+                placeholder="kWh"
+                keyboardType="numeric"
+              />
+            </View>
+            <View style={{ flex: 1 }}>
+              <TextInput
+                style={[
+                  styles.electricityInput,
+                  { justifyContent: "flex-end" },
+                ]}
+                value={monthData.cost}
+                onChangeText={(value) =>
+                  handleElectricityChange(index, "cost", value)
+                }
+                placeholder="Cost ($)"
+                keyboardType="numeric"
+              />
+            </View>
           </View>
         ))}
 
-        <Button mode="contained" onPress={handleSubmit} style={styles.submitButton}>
+        <Button
+          mode="contained"
+          onPress={handleSubmit}
+          style={styles.submitButton}
+        >
           Submit
         </Button>
       </ScrollView>
-      </Background>
+    </Background>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
+    padding: 24,
+    width: "100%",
   },
   label: {
     fontSize: 16,
@@ -141,26 +167,26 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 4,
     padding: 8,
     marginBottom: 16,
   },
   electricityRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: "100%",
+    gap: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 16,
   },
   electricityInput: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 4,
     padding: 8,
-    marginHorizontal: 4,
   },
   submitButton: {
     marginTop: 16,
   },
 });
-

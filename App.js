@@ -10,7 +10,7 @@ import {
   ResetPasswordScreen,
   Dashboard,
   Chatbot,
-  Airconforms
+  AirconForm,
 } from "./src/screens";
 
 const Stack = createStackNavigator();
@@ -30,7 +30,7 @@ export default function App() {
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Chatbot" component={Chatbot} />
-          <Stack.Screen name="Airconforms" component={Airconforms} />
+          <Stack.Screen name="AirconForm" component={AirconForm} />
           <Stack.Screen
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}

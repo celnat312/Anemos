@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TouchableOpacity, StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
-import Background from "../components/Background";
+import AuthBackground from "../components/AuthBackground";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Button from "../components/Button";
@@ -25,12 +25,12 @@ export default function LoginScreen({ navigation }) {
     }
     navigation.reset({
       index: 0,
-      routes: [{ name: "Airconforms"}],
+      routes: [{ name: "Dashboard" }],
     });
   };
 
   return (
-    <Background>
+    <AuthBackground style={{ padding: 24 }}>
       <BackButton goBack={navigation.goBack} />
       <Logo />
       <Header>Hello.</Header>
@@ -73,7 +73,7 @@ export default function LoginScreen({ navigation }) {
           <Text style={styles.link}>Create !</Text>
         </TouchableOpacity>
       </View>
-    </Background>
+    </AuthBackground>
   );
 }
 

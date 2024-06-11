@@ -1,5 +1,5 @@
 import React from "react";
-import Background from "../components/Background";
+import AuthBackground from "../components/AuthBackground";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Button from "../components/Button";
@@ -7,7 +7,7 @@ import Paragraph from "../components/Paragraph";
 
 export default function StartScreen({ navigation }) {
   return (
-    <Background>
+    <AuthBackground>
       <Logo />
       <Header>React Native - Expo - Login</Header>
       <Paragraph>A simple React Native Expo Login template app.</Paragraph>
@@ -23,6 +23,6 @@ export default function StartScreen({ navigation }) {
       >
         Create an account
       </Button>
-    </Background>
+    </AuthBackground>
   );
 }
