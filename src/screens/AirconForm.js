@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { Text } from "react-native-paper";
 import { CommonActions } from "@react-navigation/native";
@@ -9,8 +9,10 @@ import Button from "../components/Button";
 import TextInput from "../components/TextInput";
 import BackButton from "../components/BackButton";
 import { theme } from "../core/theme";
+import { FormDataContext } from '../helpers/FormDataContext';
 
 export default function Airconforms({ navigation }) {
+  const { setFormData } = useContext(FormDataContext);
   const [officeSpace, setOfficeSpace] = useState("");
   const [numberOfEmployees, setNumberOfEmployees] = useState("");
   const [workingHours, setWorkingHours] = useState("");
@@ -43,6 +45,7 @@ export default function Airconforms({ navigation }) {
       electricityData,
     };
     console.log("Form Data:", formData);
+    setFormData(formData);
     navigation.reset({
       index: 0,
       routes: [{ name: "Chatbot" }],

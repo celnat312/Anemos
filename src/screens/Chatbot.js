@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
@@ -9,8 +9,11 @@ import { theme } from "../core/theme";
 import axios from 'axios'
 import { GiftedChat } from "react-native-gifted-chat";
 import { View } from "react-native-web";
+import { FormDataContext } from '../helpers/FormDataContext';
 
 export default function Chatbot({ navigation }) {
+    const { formData } = useContext(FormDataContext);
+    console.log(formData)
     const [response, setResponse] = useState('')
     const apiKey = "";
     
