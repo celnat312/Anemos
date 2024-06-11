@@ -9,9 +9,13 @@ import {
   RegisterScreen,
   ResetPasswordScreen,
   Dashboard,
+  Chatbot,
+  AirconForm,
 } from "./src/screens";
 import { AuthContextProvider } 
 from "./src/contexts/AuthContext";
+
+import { FormDataProvider } from './src/helpers/FormDataContext';
 
 const Stack = createStackNavigator();
 
@@ -19,23 +23,27 @@ export default function App() {
   return (
     <Provider theme={theme}>
       <AuthContextProvider>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="StartScreen"
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            <Stack.Screen name="StartScreen" component={StartScreen} />
-            <Stack.Screen name="LoginScreen" component={LoginScreen} />
-            <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-            <Stack.Screen name="Dashboard" component={Dashboard} />
-            <Stack.Screen
-              name="ResetPasswordScreen"
-              component={ResetPasswordScreen}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
+      <FormDataProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="StartScreen"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="StartScreen" component={StartScreen} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+          <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="Chatbot" component={Chatbot} />
+          <Stack.Screen name="AirconForm" component={AirconForm} />
+          <Stack.Screen
+            name="ResetPasswordScreen"
+            component={ResetPasswordScreen}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+      </FormDataProvider>
       </AuthContextProvider>
     </Provider>
   );

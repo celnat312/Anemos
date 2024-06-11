@@ -4,6 +4,8 @@ import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Paragraph from "../components/Paragraph";
 import Button from "../components/Button";
+
+import { CommonActions } from "@react-navigation/native";
 import { AuthContext } from "../contexts/AuthContext";
 
 
@@ -14,6 +16,7 @@ const LogOut = () => {
     routes: [{ name: "StartScreen" }]
   });
 }
+
 
 export default function Dashboard({ navigation }) {
   const {user, setUser} = useContext(AuthContext);
@@ -33,7 +36,25 @@ export default function Dashboard({ navigation }) {
       <Paragraph>Congratulations {user}, you are logged in!</Paragraph>
       <Button
         mode="outlined"
+        onPress={() =>
+          navigation.dispatch(CommonActions.navigate({ name: "AirconForm" }))
+        }
+      >
+        Aircon Form
+      </Button>
+      <Button
+        mode="outlined"
+        onPress={() =>
+          navigation.dispatch(CommonActions.navigate({ name: "Chatbot" }))
+        }
+      >
+        ChatBot
+      </Button>
+      <Button
+        mode="outlined"
         onPress={LogOut}
+          })
+        }
       >
         Sign out
       </Button>
