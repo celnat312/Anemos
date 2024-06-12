@@ -27,8 +27,84 @@ function SmallStatistic({ bgColor, icon, value, units, change }) {
   );
 }
 
-function BigStatistic() {
-  return <View style={styles.container}></View>;
+function BigStatistic({ bgColor }) {
+  return (
+    <View style={[styles.container, { backgroundColor: bgColor, width: 280 }]}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <View style={{ flex: 2, alignSelf: "flex-start" }}>
+          <Text
+            style={{
+              fontSize: 12,
+              color: "white",
+              verticalAlign: "middle",
+              padding: 4,
+            }}
+          >
+            {"You've saved"}
+          </Text>
+        </View>
+        <Icon
+          name="dots-vertical"
+          size={30}
+          color="white"
+          style={{ alignSelf: "flex-end" }}
+        />
+      </View>
+      <Text
+        style={{
+          flex: 2,
+          fontSize: 48,
+          fontWeight: 600,
+          color: "white",
+          textAlign: "center",
+        }}
+      >
+        $3,057.67
+      </Text>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <View style={{ flex: 1, alignSelf: "flex-start" }}>
+          <Text
+            style={{
+              fontSize: 12,
+              color: "white",
+              verticalAlign: "bottom",
+              padding: 4,
+              paddingTop: 8,
+            }}
+          >
+            {"this month!"}
+          </Text>
+        </View>
+        <View style={{ flex: 1, alignSelf: "flex-end" }}>
+          <Text
+            style={{
+              fontSize: 8,
+              color: "lightgrey",
+              verticalAlign: "middle",
+              textAlign: "right",
+              padding: 8,
+            }}
+          >
+            {"Updated 2h ago"}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

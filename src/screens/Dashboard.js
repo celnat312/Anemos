@@ -5,7 +5,7 @@ import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Paragraph from "../components/Paragraph";
 import Button from "../components/Button";
-import { SmallStatistic } from "../components/Statistic";
+import { SmallStatistic, BigStatistic } from "../components/Statistic";
 
 import { StatusBar } from "expo-status-bar";
 import { AuthContext } from "../contexts/AuthContext";
@@ -62,6 +62,9 @@ export default function Dashboard({ navigation }) {
       <Logo />
       <Header>Welcome 💫</Header>
       <Paragraph>Congratulations {user}, you are logged in!</Paragraph>
+      <View style={styles.bigStat}>
+        <BigStatistic bgColor="green" />
+      </View>
       {smallStatistics.map((row) => (
         <View style={styles.row}>
           {row.map((stat) => (
@@ -77,12 +80,15 @@ export default function Dashboard({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  bigStat: {
+    marginBottom: 24,
+  },
   row: {
     flexDirection: "row",
     gap: 24,
     marginBottom: 24,
   },
   signOut: {
-    width: 240,
+    width: 280,
   },
 });
