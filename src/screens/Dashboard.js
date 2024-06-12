@@ -8,6 +8,7 @@ import Button from "../components/Button";
 import { CommonActions } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { AuthContext } from "../contexts/AuthContext";
+import { View } from "react-native-web";
 
 const LogOut = () => {
   setUser("");
@@ -29,7 +30,7 @@ export default function Dashboard({ navigation }) {
   };
 
   return (
-    <Background>
+    <Background padding={12}>
       <StatusBar style="dark" />
       <Logo />
       <Header>Welcome 💫</Header>

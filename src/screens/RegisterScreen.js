@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text } from "react-native-paper";
-import AuthBackground from "../components/AuthBackground";
+import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Button from "../components/Button";
@@ -34,7 +34,7 @@ export default function RegisterScreen({ navigation }) {
   };
 
   return (
-    <AuthBackground>
+    <Background padding={64}>
       <BackButton goBack={navigation.goBack} />
       <Logo />
       <Header>Create an account to get started !</Header>
@@ -82,7 +82,7 @@ export default function RegisterScreen({ navigation }) {
           <Text style={styles.link}>Log in</Text>
         </TouchableOpacity>
       </View>
-    </AuthBackground>
+    </Background>
   );
 }
 

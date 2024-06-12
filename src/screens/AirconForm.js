@@ -56,7 +56,7 @@ export default function Airconforms({ navigation }) {
         style={styles.container}
         contentContainerStyle={{ width: "100%" }}
       >
-        <View style={{ marginBottom: 24 }}>
+        <View style={{ marginBottom: 24, marginTop: 64 }}>
           <Header>
             Please complete this form so that we are able to cater suggestions
             based on your own office.
@@ -147,7 +147,7 @@ export default function Airconforms({ navigation }) {
             onPress={handleSubmit}
             style={styles.submitButton}
           >
-            Submit
+            Save
           </Button>
         </View>
       </ScrollView>

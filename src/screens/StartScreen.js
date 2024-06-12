@@ -1,5 +1,5 @@
 import React from "react";
-import AuthBackground from "../components/AuthBackground";
+import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Button from "../components/Button";
@@ -7,7 +7,7 @@ import Paragraph from "../components/Paragraph";
 
 export default function StartScreen({ navigation }) {
   return (
-    <AuthBackground>
+    <Background padding={64}>
       <Logo />
       <Header>ANEMOS</Header>
       <Paragraph>Profit with Purpose, Thrive Sustainably</Paragraph>
@@ -23,6 +23,6 @@ export default function StartScreen({ navigation }) {
       >
         Create an account
       </Button>
-    </AuthBackground>
+    </Background>
   );
 }

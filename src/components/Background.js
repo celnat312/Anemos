@@ -6,14 +6,17 @@ import {
 } from "react-native";
 import { theme } from "../core/theme";
 
-export default function Background({ children }) {
+export default function Background({ children, padding }) {
   return (
     <ImageBackground
       source={require("../assets/dot.png")}
       resizeMode="repeat"
       style={styles.background}
     >
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <KeyboardAvoidingView
+        style={[styles.container, { padding }]}
+        behavior="padding"
+      >
         {children}
       </KeyboardAvoidingView>
     </ImageBackground>
