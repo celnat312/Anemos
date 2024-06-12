@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { View, ScrollView, StyleSheet } from "react-native";
 import { Text } from "react-native-paper";
 import { CommonActions } from "@react-navigation/native";
@@ -7,9 +7,7 @@ import Background from "../components/Background";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import TextInput from "../components/TextInput";
-import BackButton from "../components/BackButton";
-import { theme } from "../core/theme";
-import { FormDataContext } from '../helpers/FormDataContext';
+import { FormDataContext } from "../helpers/FormDataContext";
 
 export default function Airconforms({ navigation }) {
   const { setFormData } = useContext(FormDataContext);
@@ -58,15 +56,12 @@ export default function Airconforms({ navigation }) {
         style={styles.container}
         contentContainerStyle={{ width: "100%" }}
       >
-        <BackButton
-          goBack={() => {
-            navigation.dispatch(CommonActions.goBack());
-          }}
-        />
-        <Header>
-          Please input this form so that we are able to catered suggestions
-          based on your own office
-        </Header>
+        <View style={{ marginBottom: 24 }}>
+          <Header>
+            Please complete this form so that we are able to cater suggestions
+            based on your own office.
+          </Header>
+        </View>
         <Text style={styles.label}>Office Space (in square meters)</Text>
         <TextInput
           style={styles.input}
@@ -146,13 +141,15 @@ export default function Airconforms({ navigation }) {
           </View>
         ))}
 
-        <Button
-          mode="contained"
-          onPress={handleSubmit}
-          style={styles.submitButton}
-        >
-          Submit
-        </Button>
+        <View style={{ marginBottom: 64 }}>
+          <Button
+            mode="contained"
+            onPress={handleSubmit}
+            style={styles.submitButton}
+          >
+            Submit
+          </Button>
+        </View>
       </ScrollView>
     </Background>
   );
