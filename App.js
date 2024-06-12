@@ -34,6 +34,7 @@ export default function App() {
               <Stack.Screen name="StartScreen" component={StartScreen} />
               <Stack.Screen name="LoginScreen" component={LoginScreen} />
               <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
+              <Stack.Screen name="AirconForm" component={AirconForm} />
               <Stack.Screen name="Main" component={Main} />
               <Stack.Screen
                 name="ResetPasswordScreen"

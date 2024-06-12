@@ -65,8 +65,8 @@ export default function Dashboard({ navigation }) {
       <View style={styles.bigStat}>
         <BigStatistic bgColor="green" />
       </View>
-      {smallStatistics.map((row) => (
-        <View style={styles.row}>
+      {smallStatistics.map((row, i) => (
+        <View style={styles.row} key={i}>
           {row.map((stat) => (
             <SmallStatistic {...stat} key={stat.icon} />
           ))}

@@ -46,7 +46,7 @@ export default function Airconforms({ navigation }) {
     setFormData(formData);
     navigation.reset({
       index: 0,
-      routes: [{ name: "Chatbot" }],
+      routes: [{ name: "Main" }],
     });
   };
 
