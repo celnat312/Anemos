@@ -57,15 +57,7 @@ export default function Dashboard({ navigation }) {
   };
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={{
-        paddingTop: 50,
-        paddingBottom: 24,
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <StatusBar style="dark" />
       <Logo />
       <Header>Welcome 💫</Header>
@@ -91,6 +83,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  content: {
+    paddingTop: 50,
+    paddingBottom: 24,
+    alignItems: "center",
+    justifyContent: "center",
   },
   bigStat: {
     marginBottom: 24,
