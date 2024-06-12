@@ -30,26 +30,10 @@ export default function Dashboard({ navigation }) {
 
   return (
     <Background>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <Logo />
       <Header>Welcome 💫</Header>
       <Paragraph>Congratulations {user}, you are logged in!</Paragraph>
-      <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.dispatch(CommonActions.navigate({ name: "AirconForm" }))
-        }
-      >
-        Aircon Form
-      </Button>
-      <Button
-        mode="outlined"
-        onPress={() =>
-          navigation.dispatch(CommonActions.navigate({ name: "Chatbot" }))
-        }
-      >
-        ChatBot
-      </Button>
       <Button mode="outlined" onPress={LogOut}>
         Sign out
       </Button>

@@ -24,11 +24,12 @@ export default function LoginScreen({ navigation }) {
       setNameInput({ ...nameInput, error: nameError });
       setPassword({ ...password, error: passwordError });
       return;
+    } else {
+      setUser(nameInput.value);
     }
-    else{setUser(nameInput.value);}
     navigation.reset({
       index: 0,
-      routes: [{ name: "Dashboard" }],
+      routes: [{ name: "Main" }],
     });
   };
 
