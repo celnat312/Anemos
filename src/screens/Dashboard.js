@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
@@ -57,7 +57,15 @@ export default function Dashboard({ navigation }) {
   };
 
   return (
-    <Background padding={12}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{
+        paddingTop: 50,
+        paddingBottom: 24,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <StatusBar style="dark" />
       <Logo />
       <Header>Welcome 💫</Header>
@@ -68,25 +76,30 @@ export default function Dashboard({ navigation }) {
       {smallStatistics.map((row) => (
         <View style={styles.row}>
           {row.map((stat) => (
-            <SmallStatistic {...stat} />
+            <SmallStatistic {...stat} key={stat.icon} />
           ))}
         </View>
       ))}
       <Button style={styles.signOut} mode="outlined" onPress={LogOut}>
         Sign out
       </Button>
-    </Background>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
   bigStat: {
     marginBottom: 24,
+    marginHorizontal: 16,
   },
   row: {
     flexDirection: "row",
-    gap: 24,
-    marginBottom: 24,
+    gap: 16,
+    marginBottom: 16,
   },
   signOut: {
     width: 280,

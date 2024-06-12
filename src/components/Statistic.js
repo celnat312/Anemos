@@ -10,7 +10,7 @@ function ChangeIcon({ change }) {
     <Icon
       name={iconNames[index]}
       style={styles.change}
-      size={30}
+      size={40}
       color="white"
     />
   );
@@ -19,7 +19,7 @@ function ChangeIcon({ change }) {
 function SmallStatistic({ bgColor, icon, value, units, change }) {
   return (
     <View style={[styles.container, { backgroundColor: bgColor }]}>
-      <Icon name={icon} size={30} color="white" style={styles.icon} />
+      <Icon name={icon} size={40} color="white" style={styles.icon} />
       <Text style={styles.value}>{value}</Text>
       <Text style={styles.units}>{units}</Text>
       <ChangeIcon change={change} />
@@ -29,7 +29,9 @@ function SmallStatistic({ bgColor, icon, value, units, change }) {
 
 function BigStatistic({ bgColor }) {
   return (
-    <View style={[styles.container, { backgroundColor: bgColor, width: 280 }]}>
+    <View
+      style={[styles.container, { backgroundColor: bgColor, width: "100%" }]}
+    >
       <View
         style={{
           flex: 1,
@@ -41,10 +43,10 @@ function BigStatistic({ bgColor }) {
         <View style={{ flex: 2, alignSelf: "flex-start" }}>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 20,
               color: "white",
-              verticalAlign: "middle",
-              padding: 4,
+              verticalAlign: "bottom",
+              padding: 10,
             }}
           >
             {"You've saved"}
@@ -60,7 +62,7 @@ function BigStatistic({ bgColor }) {
       <Text
         style={{
           flex: 2,
-          fontSize: 48,
+          fontSize: 60,
           fontWeight: 600,
           color: "white",
           textAlign: "center",
@@ -79,10 +81,10 @@ function BigStatistic({ bgColor }) {
         <View style={{ flex: 1, alignSelf: "flex-start" }}>
           <Text
             style={{
-              fontSize: 12,
+              fontSize: 20,
               color: "white",
               verticalAlign: "bottom",
-              padding: 4,
+              padding: 10,
               paddingTop: 8,
             }}
           >
@@ -96,7 +98,7 @@ function BigStatistic({ bgColor }) {
               color: "lightgrey",
               verticalAlign: "middle",
               textAlign: "right",
-              padding: 8,
+              padding: 12,
             }}
           >
             {"Updated 2h ago"}
@@ -111,8 +113,8 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 20,
     padding: 12,
-    height: 130,
-    width: 130,
+    height: 190,
+    width: 190,
     // shadow props for ios
     shadowColor: "#000",
     shadowOffset: {
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
   value: {
     flex: 2,
     alignSelf: "center",
-    fontSize: 40,
+    fontSize: 60,
     fontWeight: "600",
     color: "white",
     paddingBottom: 15,
@@ -140,7 +142,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
     color: "white",
-    fontSize: 12,
+    fontSize: 20,
   },
   change: {
     flex: 2,

@@ -5,7 +5,7 @@ import { CommonActions } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text, BottomNavigation, useTheme } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { AirconForm, Dashboard, Chatbot } from ".";
+import { AirconForm, Dashboard, Chatbot, Forum } from ".";
 import { theme } from "../core/theme";
 
 const Tab = createBottomTabNavigator();
@@ -93,6 +93,16 @@ export default function Main() {
           tabBarLabel: "Form",
           tabBarIcon: ({ color, size }) => {
             return <Icon name="form-textbox" size={size} color={color} />;
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Forum"
+        component={Forum}
+        options={{
+          tabBarLabel: "Forum",
+          tabBarIcon: ({ color, size }) => {
+            return <Icon name="forum" size={size} color={color} />;
           },
         }}
       />
