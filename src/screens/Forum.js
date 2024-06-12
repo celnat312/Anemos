@@ -55,8 +55,8 @@ export default function Forum({ navigation }) {
       <Logo />
       <StatusBar style="dark" />
       <Text>See what other people are saying!</Text>
-      {forumContent.map((content) => (
-        <ForumCard {...content} />
+      {forumContent.map((content, i) => (
+        <ForumCard {...content} key={i} />
       ))}
     </ScrollView>
   );
