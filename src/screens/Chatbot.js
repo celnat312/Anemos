@@ -10,6 +10,9 @@ import axios from 'axios'
 import { GiftedChat } from "react-native-gifted-chat";
 import { View } from "react-native-web";
 import { FormDataContext } from '../helpers/FormDataContext';
+import BackButton from "../components/BackButton";
+
+
 
 export default function Chatbot({ navigation }) {
     const { formData } = useContext(FormDataContext);
@@ -79,13 +82,13 @@ export default function Chatbot({ navigation }) {
     }, []);
 
     return (
-        <GiftedChat
-            messages={messages}
-            onSend={newMessage => fetchAIResponse(newMessage)}
-            user={{
+            <GiftedChat
+              messages={messages}
+              onSend={newMessage => fetchAIResponse(newMessage)}
+              user={{
                 _id: 1,
-            }}
-        />
-    );
+              }}
+            />
+      );
 }
 

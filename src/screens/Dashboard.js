@@ -9,13 +9,13 @@ import { CommonActions } from "@react-navigation/native";
 import { AuthContext } from "../contexts/AuthContext";
 
 
-const LogOut = () => {
-    setUser("");
-    navigation.reset({
-    index: 0,
-    routes: [{ name: "StartScreen" }]
-  });
-}
+// const LogOut = () => {
+//     setUser("");
+//     navigation.reset({
+//     index: 0,
+//     routes: [{ name: "StartScreen" }]
+//   });
+// }
 
 
 export default function Dashboard({ navigation }) {
@@ -42,6 +42,7 @@ export default function Dashboard({ navigation }) {
       >
         Aircon Form
       </Button>
+
       <Button
         mode="outlined"
         onPress={() =>
@@ -50,11 +51,19 @@ export default function Dashboard({ navigation }) {
       >
         ChatBot
       </Button>
+
+      <Button
+        mode="outlined"
+        onPress={() =>
+          navigation.dispatch(CommonActions.navigate({ name: 'Analytics' }))
+        }
+      >
+        View Analytics
+      </Button>
+
       <Button
         mode="outlined"
         onPress={LogOut}
-          })
-        }
       >
         Sign out
       </Button>

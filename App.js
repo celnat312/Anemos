@@ -11,6 +11,7 @@ import {
   Dashboard,
   Chatbot,
   AirconForm,
+  Analytics,
 } from "./src/screens";
 import { AuthContextProvider } 
 from "./src/contexts/AuthContext";
@@ -37,6 +38,7 @@ export default function App() {
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Chatbot" component={Chatbot} />
           <Stack.Screen name="AirconForm" component={AirconForm} />
+          <Stack.Screen name="Analytics" component={Analytics} /> 
           <Stack.Screen
             name="ResetPasswordScreen"
             component={ResetPasswordScreen}
